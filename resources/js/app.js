@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import store from "./store/store.js";
+
 import router from './router.js';
 
 import App from './App.vue';
@@ -35,5 +37,6 @@ import App from './App.vue';
 const app = new Vue({
     el: '#app',
     components: { App },
-    router
+    router,
+    store,
 });

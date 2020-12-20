@@ -16,8 +16,8 @@ export const router = new Router({
   routes: [
     { path: "/", component: HomePage, name: "home" },
     { path: "/events", component: EventList, name: "events" },
-    { path: "/events/:slug", component: EventCodeList, name: "events" },
-    { path: "/mobiles", component: EventList, name: "mobiles" },
+    { path: "/events/:slug", component: EventCodeList, name: "events.info" },
+    { path: "/mobiles", component: MobileList, name: "mobiles" },
     { path: "/winners", component: WinnerList, name: "winners" },
 
     // otherwise redirect to home
