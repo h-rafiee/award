@@ -27,10 +27,10 @@
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/events">Events</a>
+                                <a class="nav-link" :class="eventActive ? 'active' : ''" href="/events">Events</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/mobiles">Mobiles</a>
+                                <a class="nav-link" :class="mobileActive ? 'active' : ''" href="/mobiles">Mobiles</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" :class="winnerActive ? 'active' : ''" href="/winners">Winners</a>
@@ -62,6 +62,7 @@ export default {
                 this.homeActive = true;
                 break;
             case "events":
+            case "events.info":
                 this.eventActive = true;
                 break;
             case "mobiles":
