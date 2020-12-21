@@ -1,19 +1,22 @@
 <?php
 
+use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\MobileController;
+use App\Http\Controllers\API\WinnerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::name('api.')->group(function () {
+    Route::post('/events/register/{event:slug}', [EventController::class, 'register'])->name('event.register');
+    Route::resource('events', EventController::class)->parameters([
+        'events' => 'events:slug',
+    ]);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::resource('mobiles', MobileController::class)->only([
+        'index'
+    ]);
+
+    Route::resource('winners', WinnerController::class)->only([
+        'index'
+    ]);
 });
